@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nandini Saini | Spatial Dashboard</title>
-    <!-- Using Inter for a clean, modern Apple-like UI -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Nandini Saini | Portfolio</title>
+    <meta name="description" content="Nandini Saini — Project Manager, Data Scientist & Web Developer based in New Delhi, India. Contact: nandinisaini170@gmail.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
@@ -14,156 +14,242 @@
     <!-- 3D Environment Background -->
     <div class="environment-background"></div>
 
-    <!-- Spatial Scene Container -->
+    <!-- Mobile Hamburger Button -->
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation">
+        <i class="ph ph-list" id="hamburgerIcon"></i>
+    </button>
+
+    <!-- Mobile Nav Overlay (tap to close) -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <!-- Spatial Scene -->
     <div class="spatial-scene">
 
         <!-- LEFT: Navigation Sidebar -->
-        <nav class="glass-panel nav-sidebar hover-lift" data-speed="1.2" data-depth="0.1">
-            <button class="nav-item interactive active" data-target="home"><i class="ph ph-house"></i> Home</button>
-            <button class="nav-item interactive" data-target="projects"><i class="ph ph-grid-four"></i> Projects</button>
-            <button class="nav-item interactive" data-target="skills"><i class="ph ph-barbell"></i> Skills</button>
-            <button class="nav-item interactive" data-target="process"><i class="ph ph-git-branch"></i> Process</button>
-            <button class="nav-item interactive" data-target="contact"><i class="ph ph-envelope-simple"></i> Contact</button>
+        <nav class="glass-panel nav-sidebar hover-lift" data-speed="1.2" data-depth="0.1" id="navSidebar">
+            <button class="nav-item active" data-target="home" id="nav-home">
+                <i class="ph ph-house"></i> Home
+            </button>
+            <button class="nav-item" data-target="projects" id="nav-projects">
+                <i class="ph ph-grid-four"></i> Projects
+            </button>
+            <button class="nav-item" data-target="skills" id="nav-skills">
+                <i class="ph ph-barbell"></i> Skills
+            </button>
+            <button class="nav-item" data-target="process" id="nav-process">
+                <i class="ph ph-git-branch"></i> Process
+            </button>
+            <button class="nav-item" data-target="contact" id="nav-contact">
+                <i class="ph ph-envelope-simple"></i> Contact
+            </button>
         </nav>
 
         <!-- CENTER: Main Content Panel -->
         <main class="glass-panel main-panel hover-lift" data-speed="0.8" data-depth="0.05">
             <div class="panel-inner-scroll">
-                
-                <!-- CONTENT: HOME -->
+
+                <!-- HOME -->
                 <div id="content-home" class="tab-content active">
                     <header class="profile-header">
-                        <img src="https://ui-avatars.com/api/?name=NS&background=E6FF00&color=050505&size=100" alt="Avatar" class="avatar-img interactive">
+                        <img src="https://ui-avatars.com/api/?name=NS&background=E6FF00&color=050505&size=100&bold=true" alt="Nandini Saini Avatar" class="avatar-img interactive">
                         <div class="profile-text">
-                            <span class="role-badge">Content Creator | Visual Designer</span>
+                            <span class="role-badge">Project Manager · Data Scientist · Web Developer</span>
                             <h1 class="name-title">Nandini Saini</h1>
-                            <p class="location-text">New Delhi, India</p>
+                            <p class="location-text"><i class="ph ph-map-pin"></i> New Delhi, India</p>
                         </div>
-                        <button class="btn-see-more interactive" onclick="document.querySelector('[data-target=\'projects\']').click()">See work <i class="ph ph-arrow-right"></i></button>
+                        <button class="btn-see-more interactive" onclick="navigateTo('projects')">See work <i class="ph ph-arrow-right"></i></button>
                     </header>
 
                     <h2 class="section-heading mt-30">About Me</h2>
-                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px;">
-                        I’m currently pursuing B.Sc. Mathematical Sciences from Delhi University, where I’ve developed a strong analytical mindset through statistics and data interpretation.
+                    <p style="font-size:14px; line-height:1.7; color:var(--text-muted); margin-bottom:16px;">
+                        I'm pursuing B.Sc. Mathematical Sciences (Mathematics, Computer Science, Statistics) from the University of Delhi. I combine an analytical mindset with hands-on development — building full-stack platforms, ML pipelines, and data-driven systems for real clients.
                     </p>
-                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px;">
-                        Alongside academics, I actively work on content creation and design—managing multiple Instagram pages, experimenting with visual storytelling, and understanding what drives engagement.
+                    <p style="font-size:14px; line-height:1.7; color:var(--text-muted); margin-bottom:16px;">
+                        Currently leading cross-functional teams at <strong style="color:#fff;">Candid Apricot</strong> as Project Manager & Team Lead, managing $50K+ project budgets and delivering scalable e-commerce platforms for international clients.
                     </p>
-                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px;">
-                        I enjoy combining creativity with strategy—creating content that not only looks good but performs well. I’m especially interested in branding, social media growth, and building meaningful digital experiences.
+                    <p style="font-size:14px; line-height:1.7; color:var(--text-muted);">
+                        I believe in data-driven creativity — whether it's building a Django platform serving 1,000+ students or engineering ML recommendation systems that lift order value by 20%.
                     </p>
+
+                    <h2 class="section-heading">Experience</h2>
+                    <div class="exp-item">
+                        <h4>Project Manager &amp; Team Lead</h4>
+                        <div class="exp-meta">Candid Apricot · Jan 2026 – Present</div>
+                        <p>Spearheading cross-functional teams of 5+ developers and designers, managing $50K+ project budgets, reducing development time 25% via Agile sprint planning.</p>
+                    </div>
+                    <div class="exp-item" style="border-left-color: var(--clr-cyan);">
+                        <h4>Web Developer</h4>
+                        <div class="exp-meta">The Placement Cell, PGDAV College · Aug 2025 – Present</div>
+                        <p>Full-stack Django + React platform serving 1,000+ students. Automated workflows reducing admin overhead by 60%.</p>
+                    </div>
+                    <div class="exp-item" style="border-left-color: var(--clr-purple);">
+                        <h4>Business Development Intern</h4>
+                        <div class="exp-meta">Candid Apricot · Mar 2025 – Present</div>
+                        <p>Grew brand engagement 45%, follower base 2,000+ in 6 months through data-driven social media strategy.</p>
+                    </div>
                 </div>
 
-                <!-- CONTENT: PROJECTS -->
+                <!-- PROJECTS -->
                 <div id="content-projects" class="tab-content">
                     <h2 class="section-heading" style="margin-top:0;">Selected Projects</h2>
                     <div class="projects-grid">
                         <article class="project-card interactive color-purple">
-                            <div class="card-tag">Instagram Strategy</div>
-                            <h3>Building a Niche Pet Content Page</h3>
-                            <p>Managed and grew @_vritus by creating engaging, visually appealing content tailored to a specific audience.</p>
-                            <div class="card-visual"><i class="ph ph-paw-print massive-icon"></i></div>
+                            <div class="card-tag">Full-Stack / Django</div>
+                            <h3>PGDAV Placement Platform</h3>
+                            <p>Full-stack Django + React placement platform serving 1,000+ students. Integrated Python analytics pipeline and automated 60% of admin workflows via RESTful APIs.</p>
+                            <div class="card-visual"><i class="ph ph-students massive-icon"></i></div>
                         </article>
                         <article class="project-card interactive color-blue">
-                            <div class="card-tag">Brand Management</div>
-                            <h3>Multi-Account Content Management</h3>
-                            <p>Handled multiple Instagram accounts simultaneously while maintaining consistent branding.</p>
-                            <div class="card-visual"><i class="ph ph-instagram-logo massive-icon"></i></div>
+                            <div class="card-tag">Machine Learning</div>
+                            <h3>E-Commerce Recommendation Engine</h3>
+                            <p>ML-based product recommendation system for e-commerce clients, increasing average order value by 20% through personalised suggestions.</p>
+                            <div class="card-visual"><i class="ph ph-robot massive-icon"></i></div>
                         </article>
                         <article class="project-card interactive color-amber">
-                            <div class="card-tag">Research & Outreach</div>
-                            <h3>LinkedIn Talent Research</h3>
-                            <p>Worked with placement cell to identify HR professionals actively hiring.</p>
-                            <div class="card-visual"><i class="ph ph-users-three massive-icon"></i></div>
-                        </article>
-                        <article class="project-card interactive color-cyan">
-                            <div class="card-tag">Academic / Data</div>
-                            <h3>Data Visualization (Python)</h3>
-                            <p>Created visual insights using the Titanic Dataset to understand relationships.</p>
+                            <div class="card-tag">Data Science</div>
+                            <h3>KPI Reporting Dashboards</h3>
+                            <p>Python-automated reporting dashboards and real-time BI systems for stakeholders at Candid Apricot. Powered by Pandas, Matplotlib &amp; Seaborn.</p>
                             <div class="card-visual"><i class="ph ph-chart-bar massive-icon"></i></div>
                         </article>
+                        <article class="project-card interactive color-cyan">
+                            <div class="card-tag">Web Scraping / SEO</div>
+                            <h3>Job Board Aggregator</h3>
+                            <p>BeautifulSoup + Selenium scraper adding 300+ listings to a centralised MySQL database. Achieved 50% faster load times with SEO improvements.</p>
+                            <div class="card-visual"><i class="ph ph-magnifying-glass massive-icon"></i></div>
+                        </article>
                         <article class="project-card interactive color-neon span-2">
-                            <div class="card-tag" style="color:#000;">Brand Campaign (Spec Project)</div>
-                            <h3 style="color:#000;">Instagram Launch Campaign</h3>
-                            <p style="color:#333;">Designed a mock social media campaign to showcase branding, visual consistency, and content strategy.</p>
-                            <button class="btn-cta-dark interactive">View Launch Details</button>
+                            <div class="card-tag" style="color:#000;">Shopify / E-Commerce</div>
+                            <h3 style="color:#000;">Shopify Catalog Optimisation (200+ SKUs)</h3>
+                            <p style="color:#333;">SEO-driven product catalog optimisation for 200+ SKUs using data mining and user behaviour analytics — improving discoverability by 35% and reducing bounce rate by 20%.</p>
+                            <button class="btn-cta-dark interactive" onclick="navigateTo('contact')">Let's Collaborate</button>
                         </article>
                     </div>
                 </div>
 
-                <!-- CONTENT: SKILLS -->
+                <!-- SKILLS -->
                 <div id="content-skills" class="tab-content">
-                    <h2 class="section-heading" style="margin-top:0;">Weapons of Choice</h2>
+                    <h2 class="section-heading" style="margin-top:0;">Technical Arsenal</h2>
                     <div class="projects-grid">
-                        <article class="project-card interactive" style="background: rgba(255,255,255,0.05);">
-                            <i class="ph ph-palette skill-icon" style="font-size:32px; color:var(--clr-neon);"></i>
-                            <h3 style="margin-top: 16px;">Creative Skills</h3>
-                            <ul style="list-style:none; padding-left:0; font-size:13px; color:var(--text-muted); line-height:1.8;">
-                                <li>✨ Canva Design</li>
-                                <li>✨ Social Media Content</li>
-                                <li>✨ Visual Storytelling</li>
-                                <li>✨ Branding Basics</li>
+                        <article class="project-card interactive" style="background:rgba(157,0,255,0.12); border-color: rgba(157,0,255,0.3);">
+                            <i class="ph ph-code skill-icon" style="font-size:28px; color:var(--clr-purple);"></i>
+                            <h3 style="margin-top:14px; font-size:15px;">Languages</h3>
+                            <ul style="list-style:none; padding-left:0; font-size:12px; color:var(--text-muted); line-height:2; margin-top:8px;">
+                                <li>Python (Advanced) · JavaScript (ES6+)</li>
+                                <li>HTML5 · CSS3 · SQL · R · LaTeX</li>
                             </ul>
                         </article>
-                        <article class="project-card interactive" style="background: rgba(255,255,255,0.05);">
-                            <i class="ph ph-chart-line-up skill-icon" style="font-size:32px; color:var(--clr-cyan);"></i>
-                            <h3 style="margin-top: 16px;">Analytical Skills</h3>
-                            <ul style="list-style:none; padding-left:0; font-size:13px; color:var(--text-muted); line-height:1.8;">
-                                <li>📊 Data Interpretation</li>
-                                <li>📊 Basic Data Visualization</li>
-                                <li>📊 Audience Behavior</li>
+                        <article class="project-card interactive" style="background:rgba(0,229,255,0.08); border-color: rgba(0,229,255,0.25);">
+                            <i class="ph ph-brain skill-icon" style="font-size:28px; color:var(--clr-cyan);"></i>
+                            <h3 style="margin-top:14px; font-size:15px;">ML &amp; Data Science</h3>
+                            <ul style="list-style:none; padding-left:0; font-size:12px; color:var(--text-muted); line-height:2; margin-top:8px;">
+                                <li>Scikit-learn · TensorFlow · Pandas</li>
+                                <li>NumPy · Matplotlib · Seaborn</li>
+                                <li>EDA · Feature Engineering · A/B Testing</li>
                             </ul>
                         </article>
-                        <article class="project-card interactive span-2" style="background: rgba(255,255,255,0.05);">
-                            <i class="ph ph-briefcase skill-icon" style="font-size:32px; color:var(--clr-amber);"></i>
-                            <h3 style="margin-top: 16px;">Professional Skills</h3>
-                            <ul style="list-style:none; padding-left:0; font-size:13px; color:var(--text-muted); line-height:1.8; display:flex; gap:24px;">
-                                <li>💼 LinkedIn Research</li>
-                                <li>💼 Communication</li>
-                                <li>💼 Time Management</li>
+                        <article class="project-card interactive" style="background:rgba(26,54,255,0.12); border-color: rgba(26,54,255,0.3);">
+                            <i class="ph ph-globe skill-icon" style="font-size:28px; color:var(--clr-blue);"></i>
+                            <h3 style="margin-top:14px; font-size:15px;">Web Dev</h3>
+                            <ul style="list-style:none; padding-left:0; font-size:12px; color:var(--text-muted); line-height:2; margin-top:8px;">
+                                <li>React.js · Node.js · Django · Flask</li>
+                                <li>Bootstrap · RESTful APIs · WordPress</li>
+                                <li>Shopify · MongoDB · MySQL · PostgreSQL</li>
+                            </ul>
+                        </article>
+                        <article class="project-card interactive" style="background:rgba(255,138,0,0.1); border-color: rgba(255,138,0,0.25);">
+                            <i class="ph ph-cloud skill-icon" style="font-size:28px; color:var(--clr-amber);"></i>
+                            <h3 style="margin-top:14px; font-size:15px;">Cloud &amp; Tools</h3>
+                            <ul style="list-style:none; padding-left:0; font-size:12px; color:var(--text-muted); line-height:2; margin-top:8px;">
+                                <li>GCP · AWS Basics · Git/GitHub</li>
+                                <li>Jupyter · Figma · Postman · VS Code</li>
+                                <li>Agile · Scrum · RPA · Canva</li>
                             </ul>
                         </article>
                     </div>
                 </div>
 
-                <!-- CONTENT: PROCESS -->
+                <!-- PROCESS -->
                 <div id="content-process" class="tab-content">
                     <h2 class="section-heading" style="margin-top:0;">How I Work</h2>
-                    <div style="display:flex; flex-direction:column; gap:16px;">
-                        <div class="interactive" style="padding:16px 24px; background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
-                            <span style="color:var(--clr-neon); font-weight:bold; margin-right:12px;">1.</span> Understand Audience
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <div class="process-step interactive">
+                            <span class="process-num" style="color:var(--clr-neon);">01</span>
+                            <div class="process-text">
+                                <h4>Understand Requirements</h4>
+                                <p>Deep-dive into client goals through discovery calls, translating complex business needs into clear technical specs.</p>
+                            </div>
                         </div>
-                        <div class="interactive" style="padding:16px 24px; background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
-                            <span style="color:var(--clr-cyan); font-weight:bold; margin-right:12px;">2.</span> Define Content Goal
+                        <div class="process-step interactive">
+                            <span class="process-num" style="color:var(--clr-cyan);">02</span>
+                            <div class="process-text">
+                                <h4>Data-Driven Planning</h4>
+                                <p>Leverage analytics and statistical modeling to define KPIs, prioritise features, and structure Agile sprints for 25% faster delivery.</p>
+                            </div>
                         </div>
-                        <div class="interactive" style="padding:16px 24px; background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
-                            <span style="color:var(--clr-purple); font-weight:bold; margin-right:12px;">3.</span> Design Visually Strong Creatives
+                        <div class="process-step interactive">
+                            <span class="process-num" style="color:var(--clr-purple);">03</span>
+                            <div class="process-text">
+                                <h4>Build &amp; Iterate</h4>
+                                <p>Full-stack development using Python, Django, React and ML pipelines. Continuous iteration using real user feedback and A/B testing.</p>
+                            </div>
                         </div>
-                        <div class="interactive" style="padding:16px 24px; background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
-                            <span style="color:var(--clr-amber); font-weight:bold; margin-right:12px;">4.</span> Write Engaging Captions
+                        <div class="process-step interactive">
+                            <span class="process-num" style="color:var(--clr-amber);">04</span>
+                            <div class="process-text">
+                                <h4>Optimise for Performance</h4>
+                                <p>SEO best practices, 40% improvement in page load speeds, and conversion rate optimisation backed by 95% confidence interval tests.</p>
+                            </div>
                         </div>
-                        <div class="interactive" style="padding:16px 24px; background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
-                            <span style="color:var(--clr-blue); font-weight:bold; margin-right:12px;">5.</span> Analyze & Improve
+                        <div class="process-step interactive">
+                            <span class="process-num" style="color:var(--clr-blue);">05</span>
+                            <div class="process-text">
+                                <h4>Deliver &amp; Scale</h4>
+                                <p>On-time delivery with 100% track record. Post-launch monitoring, automated reporting dashboards, and ongoing support.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- CONTENT: CONTACT -->
-                <div id="content-contact" class="tab-content" style="height:100%;">
-                    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center;">
-                        <i class="ph ph-paper-plane-tilt" style="font-size:64px; margin-bottom:24px; color:var(--clr-neon);"></i>
-                        <h2 style="font-size:36px; margin-bottom:16px;">Ready to pull attention?</h2>
-                        <p style="color:var(--text-muted); margin-bottom:32px;">Let's talk about creating bold, scroll-stopping content backed by strategy and data.</p>
-                        <a href="mailto:hello@example.com" class="interactive" style="display:inline-block; padding:16px 32px; background:var(--text-main); color:#000; text-decoration:none; border-radius:24px; font-weight:bold;">Send an Email</a>
+                <!-- CONTACT -->
+                <div id="content-contact" class="tab-content">
+                    <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding-top:16px;">
+                        <i class="ph ph-paper-plane-tilt" style="font-size:52px; margin-bottom:16px; color:var(--clr-neon);"></i>
+                        <h2 style="font-size:28px; margin-bottom:10px; font-weight:700;">Let's Build Something</h2>
+                        <p style="color:var(--text-muted); margin-bottom:28px; font-size:14px; max-width:340px; line-height:1.6;">
+                            Open to freelance projects, full-time roles, and collaborations in web development, data science, and project management.
+                        </p>
+
+                        <div class="social-links-contact" style="margin-bottom:28px;">
+                            <a href="https://www.linkedin.com/in/nandinisaini98/" target="_blank" class="social-link-btn interactive">
+                                <i class="ph ph-linkedin-logo"></i> LinkedIn
+                            </a>
+                            <a href="https://www.instagram.com/nandinisaini.online/" target="_blank" class="social-link-btn interactive">
+                                <i class="ph ph-instagram-logo"></i> Instagram
+                            </a>
+                            <a href="mailto:nandinisaini170@gmail.com" class="social-link-btn interactive">
+                                <i class="ph ph-envelope-simple"></i> Email
+                            </a>
+                            <a href="tel:+919810914401" class="social-link-btn interactive">
+                                <i class="ph ph-phone"></i> Call
+                            </a>
+                        </div>
+
+                        <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                            <input type="text" placeholder="Your Name" required id="contactName">
+                            <input type="email" placeholder="Your Email" required id="contactEmail">
+                            <textarea rows="4" placeholder="Tell me about your project or opportunity..." required id="contactMessage"></textarea>
+                            <button type="submit" class="contact-submit">Send Message <i class="ph ph-paper-plane-tilt"></i></button>
+                        </form>
+                        <p id="formFeedback" style="margin-top:12px; font-size:13px; color:var(--clr-neon); display:none;">✅ Message sent! I'll get back to you soon.</p>
                     </div>
                 </div>
 
             </div>
         </main>
 
-        <!-- RIGHT: Notes/Manifesto Panel -->
+        <!-- RIGHT: Notes Panel -->
         <aside class="glass-panel notes-panel hover-lift" data-speed="1.1" data-depth="0.12">
-            
+
             <header class="notes-header">
                 <h2>Notes</h2>
                 <div class="top-right-controls">
@@ -173,58 +259,97 @@
             </header>
 
             <div class="notes-content">
-                
+
                 <!-- NOTES: HOME -->
                 <div id="notes-home" class="tab-content active">
                     <span class="note-subtitle">Introduction</span>
-                    <h3 class="note-title">How to use this website?</h3>
-                    <p>Hello everyone, welcome to my spatial portfolio website! This environment is designed to pull attention just like the strategies I build.</p>
-                    <p>I know what you're thinking: "A 3D spatial interface for a content creator?" In short, the answer is no. But it is visually striking and proves I care about crafting premium digital experiences.</p>
-                    <p>On this website, you'll find a collection of my projects, skills, and process. I won't keep you waiting any longer, so go take a look!</p>
+                    <h3 class="note-title">Welcome to my spatial portfolio</h3>
+                    <p>Hello! I'm Nandini Saini — a B.Sc. Mathematical Sciences student at Delhi University with 3+ years of professional experience in project management, web development, and data science.</p>
+                    <p>Navigate using the sidebar to explore my projects, technical skills, work process, or to get in touch.</p>
+                    <div class="stats-row" style="margin-top:20px;">
+                        <div class="stat interactive">
+                            <span class="s-val">$50K+</span>
+                            <span class="s-lbl">Project Budgets Managed</span>
+                        </div>
+                        <div class="stat interactive">
+                            <span class="s-val">1K+</span>
+                            <span class="s-lbl">Students Served</span>
+                        </div>
+                    </div>
+                    <div class="stats-row" style="margin-top:10px;">
+                        <div class="stat interactive">
+                            <span class="s-val">100%</span>
+                            <span class="s-lbl">On-Time Delivery</span>
+                        </div>
+                        <div class="stat interactive">
+                            <span class="s-val">25%</span>
+                            <span class="s-lbl">Dev Time Reduction</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- NOTES: PROJECTS -->
                 <div id="notes-projects" class="tab-content">
-                    <span class="note-subtitle">Overview</span>
+                    <span class="note-subtitle">Portfolio</span>
                     <h3 class="note-title">Project Highlights</h3>
-                    <p>These selected works represent my ability to combine creative storytelling with data-driven strategy.</p>
-                    <p>Click on the individual cards in the main panel to explore the "What I Did" breakdowns and visual proofs for each campaign.</p>
+                    <p>These projects span full-stack web development, machine learning, data analytics, and e-commerce optimisation.</p>
+                    <p>Each one was built for real clients or institutions — not toy demos. Results are measured and documented.</p>
+                    <div class="stats-row" style="flex-direction:column; margin-top:16px;">
+                        <div class="stat interactive" style="margin-bottom:10px;">
+                            <span class="s-val">20%</span>
+                            <span class="s-lbl">AOV Lift via ML Recommender</span>
+                        </div>
+                        <div class="stat interactive" style="margin-bottom:10px;">
+                            <span class="s-val">300+</span>
+                            <span class="s-lbl">Job Listings Scraped &amp; Added</span>
+                        </div>
+                        <div class="stat interactive">
+                            <span class="s-val">35%</span>
+                            <span class="s-lbl">Product Discoverability Improvement</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- NOTES: SKILLS -->
                 <div id="notes-skills" class="tab-content">
-                    <span class="note-subtitle">Analysis</span>
-                    <h3 class="note-title">The Perfect Balance</h3>
-                    <p>My background in Mathematical Sciences provides me with a rigid, analytical framework for understanding data.</p>
-                    <p>Simultaneously, my hands-on experience in visual design and content creation allows me to translate that data into compelling, human-centric narratives.</p>
+                    <span class="note-subtitle">Competencies</span>
+                    <h3 class="note-title">Full-Stack Analyst</h3>
+                    <p>My Mathematical Sciences degree provides statistical rigour — I don't guess, I test with 95% confidence intervals.</p>
+                    <p>Combined with hands-on Django, React, and ML experience, I bridge the gap between data insights and production-ready code.</p>
+                    <p><strong>Certifications:</strong> Data Science Job Ready · Google Cloud Compute · Responsive Web Design · Advanced Python · RPA</p>
                 </div>
 
                 <!-- NOTES: PROCESS -->
                 <div id="notes-process" class="tab-content">
-                    <span class="note-subtitle">Validation</span>
-                    <h3 class="note-title">Proof of Work</h3>
+                    <span class="note-subtitle">Proof of Work</span>
+                    <h3 class="note-title">Results That Matter</h3>
                     <div class="stats-row" style="flex-direction:column;">
-                        <div class="stat interactive" style="margin-bottom:12px;">
-                            <span class="s-val">Growth</span>
-                            <span class="s-lbl">Consistent Audience Scaling</span>
+                        <div class="stat interactive" style="margin-bottom:10px;">
+                            <span class="s-val">40%</span>
+                            <span class="s-lbl">Page Load Improvement Avg.</span>
                         </div>
-                        <div class="stat interactive" style="margin-bottom:12px;">
-                            <span class="s-val">Engage</span>
-                            <span class="s-lbl">High Interaction Rates</span>
+                        <div class="stat interactive" style="margin-bottom:10px;">
+                            <span class="s-val">60%</span>
+                            <span class="s-lbl">Admin Overhead Reduced</span>
+                        </div>
+                        <div class="stat interactive" style="margin-bottom:10px;">
+                            <span class="s-val">30%</span>
+                            <span class="s-lbl">Team Velocity Improvement</span>
                         </div>
                         <div class="stat interactive">
-                            <span class="s-val">Strategy</span>
-                            <span class="s-lbl">Data-Driven Iterations</span>
+                            <span class="s-val">15%</span>
+                            <span class="s-lbl">Conversion Rate Increase</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- NOTES: CONTACT -->
                 <div id="notes-contact" class="tab-content">
-                    <span class="note-subtitle">The Goal</span>
-                    <h3 class="note-title">Why Antigravity?</h3>
-                    <p>I’m particularly interested in <strong>Antigravity</strong> because of its focus on creative storytelling and impactful digital content.</p>
-                    <p>I’m looking for an environment where I can contribute ideas, learn from real projects, and grow as a creative strategist. My background in both content creation and analytical thinking allows me to approach work from both creative and performance perspectives.</p>
+                    <span class="note-subtitle">Get in Touch</span>
+                    <h3 class="note-title">Open to Opportunities</h3>
+                    <p>I'm actively looking for roles in <strong>web development</strong>, <strong>data science</strong>, and <strong>project management</strong>.</p>
+                    <p>Whether it's a freelance project, internship, or full-time role — let's talk.</p>
+                    <p>📍 New Delhi, India<br>🎓 Delhi University (2024–2028)<br>💼 3+ years professional exp.<br>📞 +91 98109 14401<br>✉️ nandinisaini170@gmail.com</p>
                 </div>
 
             </div>
@@ -232,17 +357,17 @@
 
         <!-- BOTTOM: Social Dock -->
         <div class="glass-panel social-dock hover-lift" data-speed="0.9" data-depth="0.08">
-            <a href="#" class="dock-item interactive">LinkedIn</a>
-            <a href="mailto:hello@example.com" class="dock-item interactive">Email</a>
-            <a href="#" class="dock-item interactive">Instagram</a>
-            <a href="#" class="dock-item interactive">Resume</a>
+            <a href="https://www.linkedin.com/in/nandinisaini98/" target="_blank" class="dock-item interactive">LinkedIn</a>
+            <a href="mailto:nandinisaini170@gmail.com" class="dock-item interactive">Email</a>
+            <a href="https://www.instagram.com/nandinisaini.online/" target="_blank" class="dock-item interactive">Instagram</a>
+            <a href="tel:+919810914401" class="dock-item interactive">Contact</a>
         </div>
 
     </div>
 
-    <!-- Instruction Overlay -->
+    <!-- Instruction Hint (desktop only) -->
     <div class="interaction-instruction">
-        Press on the canvas to focus and interact // Move mouse for parallax
+        Navigate with the sidebar · Move mouse for parallax
     </div>
 
     <script src="script.js"></script>
