@@ -79,10 +79,50 @@ document.addEventListener('DOMContentLoaded', () => {
     // =====================================================
     window.handleFormSubmit = function(e) {
         e.preventDefault();
+        
+        const name = document.getElementById('contactName').value;
+        const email = document.getElementById('contactEmail').value;
+        const message = document.getElementById('contactMessage').value;
+        
         const feedback = document.getElementById('formFeedback');
-        feedback.style.display = 'block';
-        e.target.reset();
-        setTimeout(() => { feedback.style.display = 'none'; }, 5000);
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+
+        submitBtn.innerHTML = 'Sending... <i class="ph ph-spinner-gap ph-spin"></i>';
+        submitBtn.disabled = true;
+
+        fetch("https://formsubmit.co/ajax/nandinisaini170@gmail.com", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                message: message,
+                _subject: `New Portfolio Contact from ${name}`,
+                _captcha: "false"
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            feedback.style.color = 'var(--clr-neon)';
+            feedback.innerHTML = '✅ Message sent! I\'ll get back to you soon.';
+            feedback.style.display = 'block';
+            e.target.reset();
+        })
+        .catch(error => {
+            feedback.style.color = '#ff4a4a';
+            feedback.innerHTML = '❌ Failed to send message. Please try email directly.';
+            feedback.style.display = 'block';
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+            setTimeout(() => { feedback.style.display = 'none'; }, 6000);
+        });
     };
 
     // =====================================================

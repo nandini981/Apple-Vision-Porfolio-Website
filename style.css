@@ -826,3 +826,13 @@ body {
     line-height: 1.5;
     margin: 0;
 }
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.ph-spin {
+    animation: spin 1s linear infinite;
+}
