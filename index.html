@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandini Saini | Spatial Dashboard</title>
+    <!-- Using Inter for a clean, modern Apple-like UI -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <!-- 3D Environment Background -->
+    <div class="environment-background"></div>
+
+    <!-- Spatial Scene Container -->
+    <div class="spatial-scene">
+
+        <!-- LEFT: Navigation Sidebar -->
+        <nav class="glass-panel nav-sidebar hover-lift" data-speed="1.2" data-depth="0.1">
+            <button class="nav-item interactive active" data-target="home"><i class="ph ph-house"></i> Home</button>
+            <button class="nav-item interactive" data-target="projects"><i class="ph ph-grid-four"></i> Projects</button>
+            <button class="nav-item interactive" data-target="skills"><i class="ph ph-barbell"></i> Skills</button>
+            <button class="nav-item interactive" data-target="process"><i class="ph ph-git-branch"></i> Process</button>
+            <button class="nav-item interactive" data-target="contact"><i class="ph ph-envelope-simple"></i> Contact</button>
+        </nav>
+
+        <!-- CENTER: Main Content Panel -->
+        <main class="glass-panel main-panel hover-lift" data-speed="0.8" data-depth="0.05">
+            <div class="panel-inner-scroll">
+                
+                <!-- CONTENT: HOME -->
+                <div id="content-home" class="tab-content active">
+                    <header class="profile-header">
+                        <img src="https://ui-avatars.com/api/?name=NS&background=E6FF00&color=050505&size=100" alt="Avatar" class="avatar-img interactive">
+                        <div class="profile-text">
+                            <span class="role-badge">Content Creator | Visual Designer</span>
+                            <h1 class="name-title">Nandini Saini</h1>
+                            <p class="location-text">New Delhi, India</p>
+                        </div>
+                        <button class="btn-see-more interactive" onclick="document.querySelector('[data-target=\'projects\']').click()">See work <i class="ph ph-arrow-right"></i></button>
+                    </header>
+
+                    <h2 class="section-heading mt-30">About Me</h2>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px;">
+                        I’m currently pursuing B.Sc. Mathematical Sciences from Delhi University, where I’ve developed a strong analytical mindset through statistics and data interpretation.
+                    </p>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px;">
+                        Alongside academics, I actively work on content creation and design—managing multiple Instagram pages, experimenting with visual storytelling, and understanding what drives engagement.
+                    </p>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted); margin-bottom: 20px;">
+                        I enjoy combining creativity with strategy—creating content that not only looks good but performs well. I’m especially interested in branding, social media growth, and building meaningful digital experiences.
+                    </p>
+                </div>
+
+                <!-- CONTENT: PROJECTS -->
+                <div id="content-projects" class="tab-content">
+                    <h2 class="section-heading" style="margin-top:0;">Selected Projects</h2>
+                    <div class="projects-grid">
+                        <article class="project-card interactive color-purple">
+                            <div class="card-tag">Instagram Strategy</div>
+                            <h3>Building a Niche Pet Content Page</h3>
+                            <p>Managed and grew @_vritus by creating engaging, visually appealing content tailored to a specific audience.</p>
+                            <div class="card-visual"><i class="ph ph-paw-print massive-icon"></i></div>
+                        </article>
+                        <article class="project-card interactive color-blue">
+                            <div class="card-tag">Brand Management</div>
+                            <h3>Multi-Account Content Management</h3>
+                            <p>Handled multiple Instagram accounts simultaneously while maintaining consistent branding.</p>
+                            <div class="card-visual"><i class="ph ph-instagram-logo massive-icon"></i></div>
+                        </article>
+                        <article class="project-card interactive color-amber">
+                            <div class="card-tag">Research & Outreach</div>
+                            <h3>LinkedIn Talent Research</h3>
+                            <p>Worked with placement cell to identify HR professionals actively hiring.</p>
+                            <div class="card-visual"><i class="ph ph-users-three massive-icon"></i></div>
+                        </article>
+                        <article class="project-card interactive color-cyan">
+                            <div class="card-tag">Academic / Data</div>
+                            <h3>Data Visualization (Python)</h3>
+                            <p>Created visual insights using the Titanic Dataset to understand relationships.</p>
+                            <div class="card-visual"><i class="ph ph-chart-bar massive-icon"></i></div>
+                        </article>
+                        <article class="project-card interactive color-neon span-2">
+                            <div class="card-tag" style="color:#000;">Brand Campaign (Spec Project)</div>
+                            <h3 style="color:#000;">Instagram Launch Campaign</h3>
+                            <p style="color:#333;">Designed a mock social media campaign to showcase branding, visual consistency, and content strategy.</p>
+                            <button class="btn-cta-dark interactive">View Launch Details</button>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- CONTENT: SKILLS -->
+                <div id="content-skills" class="tab-content">
+                    <h2 class="section-heading" style="margin-top:0;">Weapons of Choice</h2>
+                    <div class="projects-grid">
+                        <article class="project-card interactive" style="background: rgba(255,255,255,0.05);">
+                            <i class="ph ph-palette skill-icon" style="font-size:32px; color:var(--clr-neon);"></i>
+                            <h3 style="margin-top: 16px;">Creative Skills</h3>
+                            <ul style="list-style:none; padding-left:0; font-size:13px; color:var(--text-muted); line-height:1.8;">
+                                <li>✨ Canva Design</li>
+                                <li>✨ Social Media Content</li>
+                                <li>✨ Visual Storytelling</li>
+                                <li>✨ Branding Basics</li>
+                            </ul>
+                        </article>
+                        <article class="project-card interactive" style="background: rgba(255,255,255,0.05);">
+                            <i class="ph ph-chart-line-up skill-icon" style="font-size:32px; color:var(--clr-cyan);"></i>
+                            <h3 style="margin-top: 16px;">Analytical Skills</h3>
+                            <ul style="list-style:none; padding-left:0; font-size:13px; color:var(--text-muted); line-height:1.8;">
+                                <li>📊 Data Interpretation</li>
+                                <li>📊 Basic Data Visualization</li>
+                                <li>📊 Audience Behavior</li>
+                            </ul>
+                        </article>
+                        <article class="project-card interactive span-2" style="background: rgba(255,255,255,0.05);">
+                            <i class="ph ph-briefcase skill-icon" style="font-size:32px; color:var(--clr-amber);"></i>
+                            <h3 style="margin-top: 16px;">Professional Skills</h3>
+                            <ul style="list-style:none; padding-left:0; font-size:13px; color:var(--text-muted); line-height:1.8; display:flex; gap:24px;">
+                                <li>💼 LinkedIn Research</li>
+                                <li>💼 Communication</li>
+                                <li>💼 Time Management</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- CONTENT: PROCESS -->
+                <div id="content-process" class="tab-content">
+                    <h2 class="section-heading" style="margin-top:0;">How I Work</h2>
+                    <div style="display:flex; flex-direction:column; gap:16px;">
+                        <div class="interactive" style="padding:16px 24px; background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
+                            <span style="color:var(--clr-neon); font-weight:bold; margin-right:12px;">1.</span> Understand Audience
+                        </div>
+                        <div class="interactive" style="padding:16px 24px; background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
+                            <span style="color:var(--clr-cyan); font-weight:bold; margin-right:12px;">2.</span> Define Content Goal
+                        </div>
+                        <div class="interactive" style="padding:16px 24px; background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
+                            <span style="color:var(--clr-purple); font-weight:bold; margin-right:12px;">3.</span> Design Visually Strong Creatives
+                        </div>
+                        <div class="interactive" style="padding:16px 24px; background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
+                            <span style="color:var(--clr-amber); font-weight:bold; margin-right:12px;">4.</span> Write Engaging Captions
+                        </div>
+                        <div class="interactive" style="padding:16px 24px; background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1);">
+                            <span style="color:var(--clr-blue); font-weight:bold; margin-right:12px;">5.</span> Analyze & Improve
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT: CONTACT -->
+                <div id="content-contact" class="tab-content" style="height:100%;">
+                    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center;">
+                        <i class="ph ph-paper-plane-tilt" style="font-size:64px; margin-bottom:24px; color:var(--clr-neon);"></i>
+                        <h2 style="font-size:36px; margin-bottom:16px;">Ready to pull attention?</h2>
+                        <p style="color:var(--text-muted); margin-bottom:32px;">Let's talk about creating bold, scroll-stopping content backed by strategy and data.</p>
+                        <a href="mailto:hello@example.com" class="interactive" style="display:inline-block; padding:16px 32px; background:var(--text-main); color:#000; text-decoration:none; border-radius:24px; font-weight:bold;">Send an Email</a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- RIGHT: Notes/Manifesto Panel -->
+        <aside class="glass-panel notes-panel hover-lift" data-speed="1.1" data-depth="0.12">
+            
+            <header class="notes-header">
+                <h2>Notes</h2>
+                <div class="top-right-controls">
+                    <button class="icon-btn interactive"><i class="ph ph-export"></i></button>
+                    <button class="icon-btn interactive"><i class="ph ph-dots-three"></i></button>
+                </div>
+            </header>
+
+            <div class="notes-content">
+                
+                <!-- NOTES: HOME -->
+                <div id="notes-home" class="tab-content active">
+                    <span class="note-subtitle">Introduction</span>
+                    <h3 class="note-title">How to use this website?</h3>
+                    <p>Hello everyone, welcome to my spatial portfolio website! This environment is designed to pull attention just like the strategies I build.</p>
+                    <p>I know what you're thinking: "A 3D spatial interface for a content creator?" In short, the answer is no. But it is visually striking and proves I care about crafting premium digital experiences.</p>
+                    <p>On this website, you'll find a collection of my projects, skills, and process. I won't keep you waiting any longer, so go take a look!</p>
+                </div>
+
+                <!-- NOTES: PROJECTS -->
+                <div id="notes-projects" class="tab-content">
+                    <span class="note-subtitle">Overview</span>
+                    <h3 class="note-title">Project Highlights</h3>
+                    <p>These selected works represent my ability to combine creative storytelling with data-driven strategy.</p>
+                    <p>Click on the individual cards in the main panel to explore the "What I Did" breakdowns and visual proofs for each campaign.</p>
+                </div>
+
+                <!-- NOTES: SKILLS -->
+                <div id="notes-skills" class="tab-content">
+                    <span class="note-subtitle">Analysis</span>
+                    <h3 class="note-title">The Perfect Balance</h3>
+                    <p>My background in Mathematical Sciences provides me with a rigid, analytical framework for understanding data.</p>
+                    <p>Simultaneously, my hands-on experience in visual design and content creation allows me to translate that data into compelling, human-centric narratives.</p>
+                </div>
+
+                <!-- NOTES: PROCESS -->
+                <div id="notes-process" class="tab-content">
+                    <span class="note-subtitle">Validation</span>
+                    <h3 class="note-title">Proof of Work</h3>
+                    <div class="stats-row" style="flex-direction:column;">
+                        <div class="stat interactive" style="margin-bottom:12px;">
+                            <span class="s-val">Growth</span>
+                            <span class="s-lbl">Consistent Audience Scaling</span>
+                        </div>
+                        <div class="stat interactive" style="margin-bottom:12px;">
+                            <span class="s-val">Engage</span>
+                            <span class="s-lbl">High Interaction Rates</span>
+                        </div>
+                        <div class="stat interactive">
+                            <span class="s-val">Strategy</span>
+                            <span class="s-lbl">Data-Driven Iterations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NOTES: CONTACT -->
+                <div id="notes-contact" class="tab-content">
+                    <span class="note-subtitle">The Goal</span>
+                    <h3 class="note-title">Why Antigravity?</h3>
+                    <p>I’m particularly interested in <strong>Antigravity</strong> because of its focus on creative storytelling and impactful digital content.</p>
+                    <p>I’m looking for an environment where I can contribute ideas, learn from real projects, and grow as a creative strategist. My background in both content creation and analytical thinking allows me to approach work from both creative and performance perspectives.</p>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- BOTTOM: Social Dock -->
+        <div class="glass-panel social-dock hover-lift" data-speed="0.9" data-depth="0.08">
+            <a href="#" class="dock-item interactive">LinkedIn</a>
+            <a href="mailto:hello@example.com" class="dock-item interactive">Email</a>
+            <a href="#" class="dock-item interactive">Instagram</a>
+            <a href="#" class="dock-item interactive">Resume</a>
+        </div>
+
+    </div>
+
+    <!-- Instruction Overlay -->
+    <div class="interaction-instruction">
+        Press on the canvas to focus and interact // Move mouse for parallax
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

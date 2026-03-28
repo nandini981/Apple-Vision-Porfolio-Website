@@ -1,0 +1,495 @@
+:root {
+    --glass-bg: rgba(20, 20, 25, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --text-main: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.6);
+
+    /* Project Tile Colors based on Image */
+    --clr-purple: #9D00FF;
+    --clr-blue: #1A36FF;
+    --clr-amber: #FF8A00;
+    --clr-cyan: #00E5FF;
+    --clr-neon: #E6FF00;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #050505;
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    /* Fixed spatial layout */
+    height: 100vh;
+    perspective: 1200px;
+    /* Crucial for 3D lifts */
+}
+
+/* Background Image */
+.environment-background {
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: url('background1.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    filter: brightness(0.6) opacity(0.8);
+    transition: transform 0.2s ease-out;
+}
+
+/* Central Scene containing all panels for Parallax */
+.spatial-scene {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Base Glass property */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    will-change: transform;
+    /* Hover handled by JS for structural parallax */
+}
+
+/* Ensure inner perspective for child 3D elements (buttons!) */
+.glass-panel * {
+    transform-style: preserve-3d;
+}
+
+/* ========================================= */
+/* SUPREME INTERACTIVE VISIONOS BUTTONS      */
+/* ========================================= */
+.interactive {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateZ(0px);
+    /* Start flat on panel */
+}
+
+.interactive:hover {
+    transform: translateZ(20px) scale(1.05);
+    /* Pop out in 3D */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.6),
+        0 0 15px rgba(255, 255, 255, 0.2);
+    /* Glow */
+    border-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.interactive:active {
+    transform: translateZ(10px) scale(0.98);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================= */
+/* LAYOUT POSITIONING                        */
+/* ========================================= */
+
+/* LEFT: Navigation Sidebar */
+.nav-sidebar {
+    left: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    padding: 16px 12px;
+    gap: 8px;
+    border-radius: 24px;
+}
+
+.nav-item {
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.nav-item i {
+    font-size: 20px;
+}
+
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* CENTER: Main Content */
+.main-panel {
+    left: 17%;
+    right: 32%;
+    /* 100 - 17 - 32 = 51% width */
+    top: 10%;
+    bottom: 12%;
+    border-radius: 24px;
+    overflow: hidden;
+    padding: 2px;
+    /* For Inner scroll gap */
+}
+
+.panel-inner-scroll {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 40px;
+}
+
+.panel-inner-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* SPA Tab Content Styles */
+.tab-content {
+    display: none;
+    opacity: 0;
+    animation: fadeIn 0.4s forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Profile Header inside Main Panel */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.avatar-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-text {
+    flex: 1;
+}
+
+.role-badge {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.name-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 2px 0;
+}
+
+.location-text {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.btn-see-more {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.top-right-controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-heading {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 24px;
+    margin-top: 40px;
+}
+
+/* Projects Grid inside Main Panel */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    /* Base color */
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card.span-2 {
+    grid-column: span 2;
+}
+
+/* Bold Vibrant Colors from Reference Image */
+.color-purple {
+    background: var(--clr-purple);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.color-blue {
+    background: var(--clr-blue);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.color-amber {
+    background: var(--clr-amber);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.color-cyan {
+    background: var(--clr-cyan);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.color-neon {
+    background: var(--clr-neon);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+.card-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.project-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.project-card p {
+    font-size: 12px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.card-visual {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.massive-icon {
+    font-size: 64px;
+    opacity: 0.2;
+    transform: translate(10px, 10px);
+}
+
+.btn-cta-dark {
+    margin-top: auto;
+    background: #000;
+    color: var(--clr-neon);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 13px;
+    align-self: flex-start;
+}
+
+/* RIGHT: Notes Panel */
+.notes-panel {
+    right: 4%;
+    width: 26%;
+    top: 10%;
+    bottom: 12%;
+    padding: 32px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.notes-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.notes-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.notes-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.notes-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.note-subtitle {
+    display: block;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.note-title {
+    font-size: 20px;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.notes-content p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.stats-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.stat {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.s-val {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.s-lbl {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.2;
+}
+
+/* BOTTOM: Social Dock */
+.social-dock {
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 100px;
+}
+
+.dock-item {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+}
+
+/* Bottom Instruction */
+.interaction-instruction {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 8px 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 11px;
+    color: var(--text-muted);
+    z-index: 100;
+    pointer-events: none;
+}
